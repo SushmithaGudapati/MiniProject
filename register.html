@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" >
+    <script>
+        function validation(){
+            var name=document.fv.name.value;
+            var mobile=document.fv.mobile.value;
+            var email=document.fv.email.value;
+            var reg= /^([a-zA-Z0-9\_]+)@([a-z]+).[a-z]{3}$/;
+            var password=document.fv.password.value;
+            var checkpassword=document.fv.checkpassword.value;
+            if (name.length<3){
+                alert("Please enter a valid name");
+                return false;
+            }
+            if(isNaN(mobile)||mobile.length<10){
+                alert("check the mobile number");
+                return false;
+            }
+            if(!email.match(reg)){
+                alert("Please enter Email Id correctly");
+                return false;
+            }
+            if(password.length<8){
+                alert("Enter password with minimum 8 characters");
+                return false;
+            }
+            if(!checkpassword.match(password)){
+                alert("Confirm your password correctly");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <section class="book" id="book">
+        <h1 class="heading">
+        <span>R</span>
+        <span>e</span>
+        <span>g</span>
+        <span>i</span>
+        <span>s</span>
+        <span>t</span>
+        <span>e</span>
+        <span>r</span>
+        </h1>
+        <div class="row">
+            <div class="image1">
+                <img src="register.jpg" alt="There should be an image">
+            </div>
+        <form  name="fv" onsubmit="return validation()"action="loginnow.html">
+            <div class="inputBox">
+            <h3>Enter Name</h3>
+            <input type="text" name="name" class="box" placeholder="Enter your name"required><br>
+            </div>
+            <div class="inputBox">
+            <h3>Enter mobile number</h3>
+            <input type="text" name="mobile" class="box" placeholder="Enter your mobilenumber" required>
+            </div>
+            <div class="inputBox">
+            <h3>Enter Email</h3>
+            <input type="email" name="email" class="box" placeholder="Enter your email"required>
+            </div>
+            <div class="inputBox">
+            <h3>Enter password</h3>
+            <input type="password" name="password" class="box" placeholder="Enter your password"required>
+            </div>
+            <div class="inputBox">
+            <h3>Confirm password</h3>
+            <input type="password" name="checkpassword" class="box" placeholder="Confirm your password"required>
+            </div>
+            <input type="submit" value="Register" class="btn">
+        </form>
+       </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

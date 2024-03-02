@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function populate(s1,s2){
+            var s1=document.getElementById(s1);
+            var s2=document.getElementById(s2);
+            s2.innerHTML="";
+            if(s1.value=="AndhraPradesh"){
+                var optionArray=['Visakhapatnam|visakhapatnam','Machilipatnam|machilipatnam','Rhajamundry|rhajamundry'];
+            }
+            else if(s1.value=="Telangana"){
+                var optionArray=['hyderabad|Hyderabad','Warangal|warangal','Karimnagar|karimnagar'];
+            }
+            for(var option in optionArray){
+                var pair=optionArray[option].split("|");
+                var newoption=document.createElement("option");
+                newoption.value=pair[0];
+                newoption.innerHTML=pair[1];
+                s2.options.add(newoption);
+            }
+        }
+    </script>
+</head>
+<body>
+<section class="book" id="book">
+    <h1 class="heading">
+    <span>p</span>
+    <span>l</span>
+    <span>a</span>
+    <span>n</span>
+    <span class="space"></span>
+    <span>n</span>
+    <span>o</span>
+    <span>w</span>
+    </h1>
+    <div class="row">
+        <div class="image">
+            <img src="1.avif" alt="There should be an image">
+        </div>
+        <form action="">
+            <div class="inputBox">
+                <h3>Choose State</h3>
+                <select name="select1" id="select1" onchange="populate(this.id,'select2')">
+                    <option value="Select State">Select State</option>
+                    <option value="AndhraPradesh">AndhraPradesh</option>
+                    <option value="Telangana">Telangana</option>
+                </select>
+            </div>
+            <div class="inputBox">
+                <h3>Select the city</h3>
+                <select name="select2" id="select2"></select>
+            </div> 
+            <div class="inputBox">
+                <h3>Choose your Category</h3>
+                <select>
+                    <option value="Select Category">Select Category</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Historical">Historical</option>
+                    <option value="Devotional">Devotional</option>
+                    <option value="Entertainment">Entertainment</option>
+                </select>
+            </div>
+            <div class="inputBox">
+                <h3>arrivals</h3>
+                <input type="date" >
+            </div>
+            <div class="inputBox">
+                <h3>Leaving</h3>
+                <input type="date" >
+            </div>
+            <input type="submit" class="btn" value="plan now">
+        </form>
+    </div>
+   </section>
+   <script src="script.js"></script>
+</body>
+</html>
